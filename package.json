@@ -1,0 +1,12 @@
+{
+  "name": "yoga-attendance",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "npm run start --prefix server",
+    "client": "npm run dev --prefix client"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0"
+  }
+}
