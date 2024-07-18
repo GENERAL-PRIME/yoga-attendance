@@ -17,7 +17,7 @@ const AttendanceTable = () => {
       .then((res) => setAttendanceRecords(res.data))
       .catch((err) => console.error("Error fetching attendance records", err));
   };
-  console.log(attendanceRecords);
+
   const groupAttendanceByStudent = (records) => {
     const groupedRecords = {};
     records.forEach((record) => {
@@ -35,7 +35,7 @@ const AttendanceTable = () => {
   };
 
   const groupedRecords = groupAttendanceByStudent(attendanceRecords);
-
+  console.log(groupedRecords);
   return (
     <div>
       <h2>Attendance Records</h2>

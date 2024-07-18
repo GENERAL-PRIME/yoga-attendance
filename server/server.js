@@ -79,12 +79,23 @@ app.get("/api/attendance/monthly", async (req, res) => {
        ORDER BY students.name, attendance.date`,
       [month, year]
     );
-    console.log(rows);
+
+    const formatDate = (date) => {
+      if (!date) return null;
+      const d = new Date(date);
+      const day = String(d.getUTCDate() + 1).padStart(2, "0");
+
+      const month = String(d.getUTCMonth() + 1).padStart(2, "0"); // Months are 0-based
+      const year = d.getUTCFullYear();
+      return `${day}-${month}-${year}`;
+    };
+
     const result = rows.map((row) => ({
       id: row.id,
       name: row.name,
-      date: row.date ? row.date.toISOString().split(" ")[0] : null, // Format date properly
+      date: formatDate(row.date), // Format date to dd-mm-yyyy
     }));
+
     res.json(result);
   } catch (error) {
     console.error("Error fetching monthly attendance", error);
