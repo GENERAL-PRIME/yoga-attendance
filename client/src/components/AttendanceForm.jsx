@@ -1,4 +1,3 @@
-// src/components/AttendanceForm.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DatePicker from "react-datepicker";
@@ -9,7 +8,6 @@ const AttendanceForm = () => {
   const [students, setStudents] = useState([]);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedStudent, setSelectedStudent] = useState("");
-
   useEffect(() => {
     fetchStudents();
   }, []);

@@ -2,6 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const moment = require("moment-timezone");
 const pool = require("./db");
 const app = express();
 const port = 5000;
@@ -67,6 +68,7 @@ app.get("/api/attendance/count", async (req, res) => {
 });
 
 // Get attendance records for all students in a particular month
+
 app.get("/api/attendance/monthly", async (req, res) => {
   const { month, year } = req.query;
   try {
@@ -82,12 +84,8 @@ app.get("/api/attendance/monthly", async (req, res) => {
 
     const formatDate = (date) => {
       if (!date) return null;
-      const d = new Date(date);
-      const day = String(d.getUTCDate() + 1).padStart(2, "0");
-
-      const month = String(d.getUTCMonth() + 1).padStart(2, "0"); // Months are 0-based
-      const year = d.getUTCFullYear();
-      return `${day}-${month}-${year}`;
+      const localDate = moment.utc(date).tz("Asia/Kolkata"); // Replace 'Your_Timezone' with your local timezone
+      return localDate.format("DD-MM-YYYY");
     };
 
     const result = rows.map((row) => ({

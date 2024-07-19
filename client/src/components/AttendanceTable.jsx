@@ -35,7 +35,6 @@ const AttendanceTable = () => {
   };
 
   const groupedRecords = groupAttendanceByStudent(attendanceRecords);
-  console.log(groupedRecords);
   return (
     <div>
       <h2>Attendance Records</h2>
