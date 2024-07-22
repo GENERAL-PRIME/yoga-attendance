@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AttendanceCount = () => {
+  const navigate = useNavigate();
   const [students, setStudents] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState("");
   const [selectedMonth, setSelectedMonth] = useState("");
@@ -30,6 +32,7 @@ const AttendanceCount = () => {
 
   return (
     <div>
+      <button onClick={() => navigate("/")}>Back</button>
       <h2>Check Attendance Count</h2>
       <select
         value={selectedStudent}

@@ -1,19 +1,12 @@
 // src/App.js
 import React from "react";
 import "./App.css";
-import AttendanceForm from "./components/AttendanceForm";
-import AttendanceCount from "./components/AttendanceCount";
-import AttendanceTable from "./components/AttendanceTable";
+import AppRouter from "./components/AppRouter";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Yoga Attendance Tracker</h1>
-        <AttendanceForm />
-        <AttendanceCount />
-        <AttendanceTable />
-      </header>
+      <AppRouter />
     </div>
   );
 }

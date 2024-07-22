@@ -1,4 +1,3 @@
-// server.js
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -84,14 +83,14 @@ app.get("/api/attendance/monthly", async (req, res) => {
 
     const formatDate = (date) => {
       if (!date) return null;
-      const localDate = moment.utc(date).tz("Asia/Kolkata"); // Replace 'Your_Timezone' with your local timezone
+      const localDate = moment.utc(date).tz("Asia/Kolkata");
       return localDate.format("DD-MM-YYYY");
     };
 
     const result = rows.map((row) => ({
       id: row.id,
       name: row.name,
-      date: formatDate(row.date), // Format date to dd-mm-yyyy
+      date: formatDate(row.date),
     }));
 
     res.json(result);

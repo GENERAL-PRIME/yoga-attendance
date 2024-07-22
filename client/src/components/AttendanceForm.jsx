@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import AddStudentForm from "./AddStudentForm";
 
 const AttendanceForm = () => {
+  const navigate = useNavigate();
   const [students, setStudents] = useState([]);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedStudent, setSelectedStudent] = useState("");
@@ -29,12 +30,9 @@ const AttendanceForm = () => {
       .catch((err) => console.error("Error submitting attendance", err));
   };
 
-  const handleStudentAdded = (newStudent) => {
-    setStudents((prevStudents) => [...prevStudents, newStudent]);
-  };
-
   return (
     <div>
+      <button onClick={() => navigate("/")}>Back</button>
       <h2>Record Attendance</h2>
       <select
         value={selectedStudent}
@@ -52,7 +50,6 @@ const AttendanceForm = () => {
         onChange={(date) => setSelectedDate(date)}
       />
       <button onClick={handleAttendanceSubmit}>Submit Attendance</button>
-      <AddStudentForm onStudentAdded={handleStudentAdded} />
     </div>
   );
 };

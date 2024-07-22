@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AttendanceTable = () => {
+  const navigate = useNavigate();
   const [selectedMonth, setSelectedMonth] = useState("");
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
   const [attendanceRecords, setAttendanceRecords] = useState([]);
@@ -37,7 +39,9 @@ const AttendanceTable = () => {
   const groupedRecords = groupAttendanceByStudent(attendanceRecords);
   return (
     <div>
+      <button onClick={() => navigate("/")}>Back</button>
       <h2>Attendance Records</h2>
+
       <select
         value={selectedMonth}
         onChange={(e) => setSelectedMonth(e.target.value)}
