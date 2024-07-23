@@ -17,7 +17,9 @@ const AddStudentForm = () => {
 
   return (
     <div>
-      <button onClick={() => navigate("/")}>Back</button>
+      <button onClick={() => navigate("/")} className="back-button">
+        ←
+      </button>
       <h2>Add New Student</h2>
       <input
         type="text"
@@ -25,7 +27,9 @@ const AddStudentForm = () => {
         onChange={(e) => setStudentName(e.target.value)}
         placeholder="Student Name"
       />
-      <button onClick={handleAddStudent}>Add Student</button>
+      <button onClick={handleAddStudent} className="submit-button">
+        Add Student
+      </button>
     </div>
   );
 };

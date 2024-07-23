@@ -39,7 +39,9 @@ const AttendanceTable = () => {
   const groupedRecords = groupAttendanceByStudent(attendanceRecords);
   return (
     <div>
-      <button onClick={() => navigate("/")}>Back</button>
+      <button onClick={() => navigate("/")} className="back-button">
+        ←
+      </button>
       <h2>Attendance Records</h2>
 
       <select
@@ -59,7 +61,9 @@ const AttendanceTable = () => {
         onChange={(e) => setSelectedYear(e.target.value)}
         placeholder="Year"
       />
-      <button onClick={handleFetchAttendance}>Get Attendance Records</button>
+      <button onClick={handleFetchAttendance} className="submit-button">
+        Get Attendance Records
+      </button>
 
       {groupedRecords.length > 0 && (
         <table border="1">

@@ -32,7 +32,9 @@ const AttendanceCount = () => {
 
   return (
     <div>
-      <button onClick={() => navigate("/")}>Back</button>
+      <button onClick={() => navigate("/")} className="back-button">
+        ←
+      </button>
       <h2>Check Attendance Count</h2>
       <select
         value={selectedStudent}
@@ -62,7 +64,9 @@ const AttendanceCount = () => {
         onChange={(e) => setSelectedYear(e.target.value)}
         placeholder="Year"
       />
-      <button onClick={handleAttendanceCountFetch}>Get Attendance Count</button>
+      <button onClick={handleAttendanceCountFetch} className="submit-button">
+        Get Attendance Count
+      </button>
       {attendanceCount !== null && (
         <div>
           <h3>Attendance Count: {attendanceCount}</h3>

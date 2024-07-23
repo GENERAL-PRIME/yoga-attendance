@@ -32,7 +32,9 @@ const AttendanceForm = () => {
 
   return (
     <div>
-      <button onClick={() => navigate("/")}>Back</button>
+      <button onClick={() => navigate("/")} className="back-button">
+        ←
+      </button>
       <h2>Record Attendance</h2>
       <select
         value={selectedStudent}
@@ -49,7 +51,9 @@ const AttendanceForm = () => {
         selected={selectedDate}
         onChange={(date) => setSelectedDate(date)}
       />
-      <button onClick={handleAttendanceSubmit}>Submit Attendance</button>
+      <button onClick={handleAttendanceSubmit} className="submit-button">
+        Submit Attendance
+      </button>
     </div>
   );
 };
